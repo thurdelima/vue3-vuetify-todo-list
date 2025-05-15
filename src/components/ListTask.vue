@@ -4,7 +4,7 @@
       lines="three"
       select-strategy="leaf"
     >
-      <v-list-subheader>Tasks</v-list-subheader>
+      <v-list-subheader>General</v-list-subheader>
       <v-list-item
         v-for="(task, index) in taskStore.tasks"
         :key="index"
@@ -13,7 +13,7 @@
         :value="index"
         @click="taskStore.toggleDoneTask(index)"
       >
-        <template>
+        <template v-slot:prepend="{ isSelected, select }">
           <v-list-item-action start>
             <v-checkbox-btn
               :model-value="task.done"
